@@ -70,6 +70,46 @@ typography:
     fontWeight: 600
     letterSpacing: "-0.01em"
     fontFeature: "tnum"
+  display-ar:
+    fontFamily: "Noto Kufi Arabic, Big Shoulders, sans-serif"
+    fontSize: "clamp(3.4rem, 8.2vw, 6rem)"
+    fontWeight: 800
+    lineHeight: 1.12
+    letterSpacing: "0"
+  headline-ar:
+    fontFamily: "Noto Kufi Arabic, Big Shoulders, sans-serif"
+    fontSize: "clamp(2.1rem, 4.4vw, 3.8rem)"
+    fontWeight: 800
+    lineHeight: 1.2
+    letterSpacing: "0"
+  title-ar:
+    fontFamily: "Noto Kufi Arabic, Big Shoulders, sans-serif"
+    fontSize: "clamp(1.6rem, 2.6vw, 2.3rem)"
+    fontWeight: 800
+    lineHeight: 1.25
+    letterSpacing: "0"
+  title-small-ar:
+    fontFamily: "Noto Kufi Arabic, Big Shoulders, sans-serif"
+    fontSize: "clamp(1.35rem, 1.9vw, 1.6rem)"
+    fontWeight: 700
+    lineHeight: 1.3
+    letterSpacing: "0"
+  body-ar:
+    fontFamily: "Readex Pro, Overpass, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.75
+  label-ar:
+    fontFamily: "Readex Pro, Overpass, Segoe UI, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 800
+    letterSpacing: "0"
+  data-ar:
+    fontFamily: "Overpass Mono, Readex Pro, ui-monospace, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 600
+    letterSpacing: "-0.01em"
+    fontFeature: "tnum"
 rounded:
   none: "0px"
 spacing:
@@ -92,6 +132,9 @@ components:
   button-primary-hover:
     backgroundColor: "{colors.tape-deep}"
     textColor: "{colors.ink}"
+  button-primary-ar:
+    typography: "{typography.label-ar}"
+    padding: "0.7em 1.25em 0.8em"
   button-ink:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.plate}"
@@ -116,6 +159,8 @@ components:
   zone-sign-active:
     backgroundColor: "{colors.tape}"
     textColor: "{colors.ink}"
+  zone-sign-ar:
+    padding: "7px 12px 8px"
   equipment-plate:
     backgroundColor: "{colors.plate}"
     textColor: "{colors.ink}"
@@ -164,12 +209,15 @@ Density is that of a working floor: big, blunt signage headlines in condensed up
 
 Motion is mechanical and purposeful: the lane draws itself in, equipment plates settle onto their footprints, a container token travels the lane and changes state at each station, gauges fill once. All of it collapses under reduced motion.
 
+The site ships in English and Arabic. The Arabic floor is the same floor walked the other way: the plan is mirrored so the line enters from the right, every directional mark follows the reading direction, and the signage switches to an Arabic Kufi face without case or tracking. Colour, depth, shape, the lane and the footprints are unchanged; numbers stay Western digits in both languages.
+
 **Key Characteristics:**
 - Colour is law: hue is assigned by the 5S floor code, never by taste.
 - Square corners everywhere; the only radii are physical details (a punched hole, a badge slot).
 - Condensed uppercase signage for headings, Overpass for reading, Overpass Mono for figures.
 - Depth is a sheet plate lying on the floor: edge lip plus soft fall-off, nothing floats.
 - The lane (12px tape) is the recurring structural device: hero plan, walk-the-line rail, return-customer path, mobile menu and footer edges.
+- Bilingual and mirrored: Arabic pages run right to left with the whole floor plan flipped; figures and spec values stay Western-digit and left-to-right.
 
 ## Colors
 
@@ -204,7 +252,11 @@ A cool concrete neutral field carrying a strict, coded set of safety hues.
 **Body Font:** Overpass (with Segoe UI, system-ui)
 **Label/Mono Font:** Overpass Mono (with ui-monospace, Cascadia Mono)
 
-**Character:** Big Shoulders is signage: condensed, heavy, uppercase, set tight like painted zone lettering. Overpass, itself derived from highway signage, carries reading text plainly; Overpass Mono stamps the numbers.
+**Arabic Display Font:** Noto Kufi Arabic (with Big Shoulders), weights 600–900
+**Arabic Body Font:** Readex Pro (with Overpass, Segoe UI, system-ui), weights 300–700
+**Arabic Data Font:** Overpass Mono (with Readex Pro for Arabic words inside a figure)
+
+**Character:** Big Shoulders is signage: condensed, heavy, uppercase, set tight like painted zone lettering. Overpass, itself derived from highway signage, carries reading text plainly; Overpass Mono stamps the numbers. In Arabic, Noto Kufi Arabic takes the sign role (geometric Kufi, heavy, the closest Arabic analogue to painted zone lettering) and Readex Pro the reading role; the role tokens are swapped under the Arabic language, so components keep one set of rules.
 
 ### Hierarchy
 - **Display** (800, clamp(3.4rem, 8.2vw, 6rem), 0.9, uppercase): page and hero headlines. The home hero tightens to clamp(3.4rem, 7.4vw, 6rem) at 0.86 line-height.
@@ -217,10 +269,24 @@ A cool concrete neutral field carrying a strict, coded set of safety hues.
 - **Label** (800, 0.8125–0.9375rem, 0.05–0.06em, uppercase, Overpass): button text, zone signs, form labels, text links with arrows, table heads.
 - **Data** (Overpass Mono 400–600, 0.6875–0.875rem, tabular numerals): BPH figures, spec values, phone numbers, years, gauge ticks, prices' units.
 
+### Arabic Hierarchy
+Arabic needs room above and below the letterforms, so the sign sizes step down and line-heights open up. Tracking is zero and no case transform is applied anywhere a Latin rule uppercases or tracks text (signs, buttons, zone signs, labels, table heads, footer heads).
+- **Display** (Noto Kufi 800, clamp(3.4rem, 8.2vw, 6rem), 1.12): page headlines. The home hero steps down to clamp(2.6rem, 6.2vw, 5.2rem) at 1.15.
+- **Headline** (Noto Kufi 800, clamp(2.1rem, 4.4vw, 3.8rem), 1.2): section heads; the proof lead runs clamp(2.4rem, 5.4vw, 4.6rem) at 1.15.
+- **Title** (Noto Kufi 800, clamp(1.6rem, 2.6vw, 2.3rem), 1.25): sub-section heads; station names 1.3rem at 1.3, service-loop steps 1.35rem at 1.35.
+- **Title Small** (Noto Kufi 700, 1.3 line-height): zone labels.
+- **Body** (Readex Pro 400, 1.0625rem, 1.75): reading text.
+- **Label** (Readex Pro 800, 1rem on buttons, 0.9375rem on zone signs, no tracking, no case): buttons, zone signs, form labels.
+- **Stencil and Data:** unchanged. Big Shoulders Stencil numerals and Overpass Mono figures stay Latin with Western digits, isolated from the surrounding Arabic run so they never reorder.
+
 ### Named Rules
 **The Mono Means Measured Rule.** Overpass Mono sets figures and data only: outputs, specs, phone numbers, years, counts. It is not a label or caption voice.
 
-**The Signage Is Uppercase Rule.** Big Shoulders is always uppercase and heavy (700–800). Overpass is never set as a display face.
+**The Signage Is Uppercase Rule.** Big Shoulders is always uppercase and heavy (700–800). Overpass is never set as a display face. In Arabic the sign face is Noto Kufi Arabic at the same heavy weights; Readex Pro is never set as a display face.
+
+**The Joined Letters Rule.** Arabic letters join, so Arabic text never takes letter-spacing or text-transform. Every Latin rule that tracks or uppercases has a zeroed Arabic counterpart.
+
+**The Western Digits Rule.** Numbers are Western digits (0–9) in both languages, in the stencil and data faces, isolated from the surrounding text direction. Arabic-Indic digits are not used.
 
 ## Layout
 
@@ -228,7 +294,9 @@ The page is a 1440px max container with a fluid gutter (clamp(16px, 3.2vw, 48px)
 
 The floor tile module (240px) sizes the seam grid behind everything, on both the epoxy and asphalt grounds. The 12px tape width is a layout unit: lanes, progress rails and dark-panel edges all use it.
 
-Responsive behaviour: the hero floor plan keeps a 1180px minimum and becomes a horizontal snap-scroller with a hint below 1100px; the walk-the-line sticky rail becomes a sticky progress strip below 960px; machine rows turn into horizontal snap carousels below 700px; 12-column splits collapse to a single column at 900px; the nav collapses to a menu at 960px.
+Responsive behaviour: the hero floor plan keeps a 1180px minimum and becomes a horizontal snap-scroller with a hint below 1100px; the walk-the-line sticky rail becomes a sticky progress strip below 960px; machine rows turn into horizontal snap carousels below 700px; 12-column splits collapse to a single column at 900px; the nav collapses to a menu at 960px. On Arabic pages the gantry drops its CTA button below 1120px to make room for the longer zone signs.
+
+Right to left: Arabic pages set the document direction to RTL and the grid, flex rows and splits follow it, so heading/lede and media/info pairs read right to left and the walk-the-line rail sits on the right. Base rules are written in logical properties (inline start and end margins and padding, start-aligned text) so they mirror without overrides. Geometry drawn with physical properties is mirrored explicitly: the hero lane enters from the right and draws in from the right edge, its chevrons are flipped, arrow and direction icons are flipped, and the token connector, walk ticks, progress-strip fill, gauge fill origin, return-customer timeline stems and the vertical service-loop line all move to the opposite side. Spec-table values, phone numbers and figures stay left to right.
 
 ## Elevation & Depth
 
@@ -245,7 +313,7 @@ Depth is physical and shallow: a plate lies on the floor. Surfaces sit flat on t
 
 ## Shapes
 
-Square-cornered everywhere (0px radius) on buttons, plates, inputs, chips, tables and panels; the only radii are literal objects: the punched hole in a testimonial tag and the lanyard slot on a team badge. Borders are 2px ink on interactive plates and inputs, 3px ink for heavy rules (legend band, vision columns), 1px translucent ink for dividers. Equipment footprints are drawn with four L-shaped corner tapes (24px arms, 6px thick) in plate white, in yellow for route items, or in ink. Hazard edges (ink and yellow 46px stripes, 18px tall) bound the enquiry loading zone. Dashed lines mean loops and empty bays: an 8px dashed plate line for the service loop, a 3px dashed ink border for an empty catalogue bay. Icons are 24px-grid strokes at 2px with square caps and mitred joins.
+Square-cornered everywhere (0px radius) on buttons, plates, inputs, chips, tables and panels; the only radii are literal objects: the punched hole in a testimonial tag and the lanyard slot on a team badge. Borders are 2px ink on interactive plates and inputs, 3px ink for heavy rules (legend band, vision columns), 1px translucent ink for dividers. Equipment footprints are drawn with four L-shaped corner tapes (24px arms, 6px thick) in plate white, in yellow for route items, or in ink. Hazard edges (ink and yellow 46px stripes, 18px tall) bound the enquiry loading zone. Dashed lines mean loops and empty bays: an 8px dashed plate line for the service loop, a 3px dashed ink border for an empty catalogue bay. Icons are 24px-grid strokes at 2px with square caps and mitred joins; arrow and direction icons are mirrored horizontally in RTL, other icons are not.
 
 ## Components
 
@@ -256,6 +324,7 @@ Floor-sign plates: square, ink-edged, uppercase, sitting on the floor.
 - **Hover / Focus:** hover deepens to tape-deep and nudges the trailing arrow 4px right; press drops the plate 2px and flattens its shadow; focus is a 3px ink outline offset 3px with a 6px yellow halo.
 - **Ink plate:** ink with plate-white text, hover #2b302e. **Plate:** equipment white with ink text, hover pure white, for secondary actions such as WhatsApp.
 - **Text link with arrow:** uppercase 800 label, 2px ink underline at 6px offset; hover swaps to a 4px yellow underline.
+- **Arabic:** label in Readex Pro at 1rem with no tracking or case, padding 0.7em 1.25em 0.8em (more room below for descenders); the trailing arrow is mirrored and nudges toward the reading direction on hover.
 
 ### Chips
 - **Style:** white field, 2px ink-3 border, square, 600 weight 0.9375rem, padding 9px 14px 7px; used as product radio choices in the enquiry form.
@@ -274,13 +343,15 @@ Floor-sign plates: square, ink-edged, uppercase, sitting on the floor.
 - **Error / Disabled:** invalid fields take a Stop Red border and a bold red message; disabled buttons drop to 50% opacity.
 
 ### Navigation
-Hanging zone signs on a gantry. The header is sticky with a 6px ink top beam and a translucent blurred floor tint. Each nav item is a plate-white sign with a 2px ink border, hung from the beam by two short ink drop-rods; hover swings it 1.5deg on a pivot above the sign and whitens it; the current page's sign is yellow. Below 960px a square ink menu button opens a full-width asphalt panel with large Big Shoulders entries, a yellow current item and a 12px yellow tape edge.
+Hanging zone signs on a gantry. The header is sticky with a 6px ink top beam and a translucent blurred floor tint. Each nav item is a plate-white sign with a 2px ink border, hung from the beam by two short ink drop-rods; hover swings it 1.5deg on a pivot above the sign and whitens it; the current page's sign is yellow. Below 960px a square ink menu button opens a full-width asphalt panel with large Big Shoulders entries, a yellow current item and a 12px yellow tape edge. Arabic zone signs set in Readex Pro at 0.9375rem with padding 7px 12px 8px and an 8px gap; Arabic menu entries run 1.6rem.
+
+**Language switch:** a plain text link in the gantry beside the phone number, naming the other language in its own script (English / العربية) and marked with that language. Ink-2 800 at 0.875rem, no plate; hover inks it with a 3px yellow underline. Inside the open mobile menu the switch appears as one more menu entry.
 
 ### Floor Plan and Lane (signature)
-A full-width top-down plan: a 12px yellow lane with a thinner edge lane and faint chevrons runs left to right through six numbered equipment footprints (stencil 01–06, machine photo, name, figure plate) and ends in a solid green finished-goods zone. On load the lane draws itself in (scaleX over 1.6s) and plates settle onto their footprints in a staggered sequence.
+A full-width top-down plan: a 12px yellow lane with a thinner edge lane and faint chevrons runs left to right through six numbered equipment footprints (stencil 01–06, machine photo, name, figure plate) and ends in a solid green finished-goods zone. On load the lane draws itself in (scaleX over 1.6s) and plates settle onto their footprints in a staggered sequence. In Arabic the whole plan mirrors: stations run right to left, the lane draws from the right edge and the chevrons point left, toward the finished-goods zone.
 
 ### Walk the Line (signature)
-A sticky rail on the left carries a 12px lane that fills with scroll, numbered tick squares that ink in as stations pass, and a container token that travels down the rail changing state: preform, bottle, filled, labelled, pack, pallet. Station numbers on the right are outlined stencils that fill yellow when active.
+A sticky rail on the left carries a 12px lane that fills with scroll, numbered tick squares that ink in as stations pass, and a container token that travels down the rail changing state: preform, bottle, filled, labelled, pack, pallet. Station numbers on the right are outlined stencils that fill yellow when active. In Arabic the rail and stations swap sides and the token connector reaches across the other way.
 
 ### Loading Zone (enquiry)
 A full-bleed yellow band bounded top and bottom by ink-and-yellow hazard stripes, holding the enquiry form as an ink-bordered white plate.
@@ -294,6 +365,8 @@ A full-bleed yellow band bounded top and bottom by ink-and-yellow hazard stripes
 - **Do** keep every corner square (0px) and every interactive plate edged in 2px ink.
 - **Do** use the 12px yellow lane as the connective device between steps, stations and sequences.
 - **Do** use the yellow halo (4–6px) plus ink outline for focus, and honour prefers-reduced-motion for every draw-in, settle, swing and fill.
+- **Do** write new layout rules in logical properties, and mirror any physically drawn directional geometry (lanes, connectors, fills, stems, arrows) under RTL so the line always flows in the reading direction.
+- **Do** keep figures, spec values and phone numbers in Western digits and left to right on Arabic pages.
 
 ### Don't:
 - **Don't** use red for anything except stop, breakdown or error.
@@ -302,3 +375,4 @@ A full-bleed yellow band bounded top and bottom by ink-and-yellow hazard stripes
 - **Don't** round corners, add sideways or solid ink drop shadows, or float plates with glows.
 - **Don't** put small uppercase eyebrow or kicker labels above headlines; the headline is the sign.
 - **Don't** use unicode glyphs as icons; icons are 2px square-capped strokes on a 24px grid.
+- **Don't** apply letter-spacing or uppercase transforms to Arabic text, or set Arabic signage in anything but Noto Kufi Arabic.
