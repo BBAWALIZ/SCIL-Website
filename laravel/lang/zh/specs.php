@@ -1,0 +1,41 @@
+<?php
+
+// Specification table labels
+// Simplified Chinese. Translated by Claude; to be checked by a Chinese-speaking colleague before launch.
+
+return [
+    'Blowing pressure' => '吹瓶压力',
+    'Bottle neck size' => '瓶口尺寸',
+    'Bottle size up to' => '最大瓶容量',
+    'Bottle spacing' => '瓶间距',
+    'Capacity up to' => '最高产能',
+    'Cavities' => '模腔数',
+    'Container size up to' => '最大容器容量',
+    'Cooling water (≤12 °C)' => '冷却水（≤12 °C）',
+    'Equipment parameters' => '设备参数',
+    'Heating lamp layers' => '加热灯管层数',
+    'Heating power' => '加热功率',
+    'Heating units' => '加热单元',
+    'High-pressure air' => '高压气',
+    'Machine (L×W×H)' => '主机（长×宽×高）',
+    'Machine dimensions' => '设备尺寸',
+    'Max. container height' => '最大容器高度',
+    'Max. neck diameter' => '最大瓶口直径',
+    'Max. preform height' => '最大瓶坯高度',
+    'Max. product diameter' => '最大瓶身直径',
+    'Max. product height' => '最大瓶高',
+    'Max. product volume' => '最大容量',
+    'Model' => '型号',
+    'Mould cavities' => '模具模腔数',
+    'Mould standard thickness' => '模具标准厚度',
+    'Output (500 ml water, 13 g)' => '产能（500 ml 水瓶，13 g）',
+    'Power in use / installed' => '实际功率 / 装机功率',
+    'Preform feeder (L×W×H)' => '瓶坯上料机（长×宽×高）',
+    'Preform holders' => '瓶坯座数量',
+    'Preform spacing' => '瓶坯间距',
+    'SC-HSP series' => 'SC-HSP 系列',
+    'Specifications' => '技术参数',
+    'Theoretical output' => '理论产能',
+    'Voltage / frequency' => '电压 / 频率',
+    'Weight (blower, heater, control box)' => '重量（吹瓶机、加热机、电控箱）',
+];

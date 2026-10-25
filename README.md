@@ -25,3 +25,7 @@ python _src/build.py
 Every push to `main` publishes the site files to GitHub Pages through `.github/workflows/pages.yml`.
 
 Design system: see `DESIGN.md`.
+
+## New PHP site (branch `laravel-rebuild`)
+
+The `laravel/` folder holds the new Laravel (PHP) version of this site in English, Arabic and Chinese. It will replace the current website. See [laravel/README.md](laravel/README.md) for install and deploy steps, and [laravel/BACKEND-PLAN.md](laravel/BACKEND-PLAN.md) for phase 2.
